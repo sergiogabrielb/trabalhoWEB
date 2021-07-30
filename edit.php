@@ -124,10 +124,10 @@ $res = $resultados->fetch(PDO::FETCH_ASSOC);
 							</div>
 							<div class="nomeProduto">
 								<p class="selectProduto">Selecione a foto do produto:</p>
-								<input class="file" type="file" required name="file" />
+								<input class="file" type="file" />
 							</div>
 							<div class="botaoCadastrar">
-								<input class="buttonCadastro" type="submit" name="Submit" value="Adicionar" />
+								<input class="buttonCadastro" type="update" name="Submit" value="Atualizar" />
 							</div>
 						</div>
 					</div>

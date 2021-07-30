@@ -11,10 +11,14 @@
 
 	if (isset($_POST['Submit'])) {
 
-		if (empty($_POST['titulo']) || empty($_POST['descricao']) || empty($_POST['preco']) || empty($_POST['estoque'] || empty($_POST['situacao']))) {
+		if (empty($_POST['titulo']) || empty($_POST['descricao']) || empty($_POST['porc_desconto']) || empty($_POST['preco']) || empty($_POST['estoque'] || empty($_POST['situacao']))) {
 
 			if (empty($_POST['titulo'])) {
 				echo "<font color='red'>O nome do produto está vazio</font><br/>";
+			}
+
+			if (empty($_POST['porc_desconto'])) {
+				echo "<font color='red'>O desconto está vazio</font><br/>";
 			}
 
 			if (empty($_POST['descricao'])) {
