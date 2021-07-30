@@ -16,7 +16,7 @@ body {
   overflow-x: hidden;
 }
 
-.contentMenu{
+.contentMenu {
   width: 100%;
 }
 
@@ -33,7 +33,7 @@ body {
   align-items: center;
   justify-content: flex-start;
 }
-.buttonsMenu{
+.buttonsMenu {
   margin-left: 70px;
   width: 70%;
   display: flex;
@@ -51,10 +51,10 @@ body {
   transition: 0.5s;
 }
 
-.buttonMP:hover{
- background-color: #828282;
- box-shadow: 2px 1px #9d9d9d;
- height: 32px;   
+.buttonMP:hover {
+  background-color: #828282;
+  box-shadow: 2px 1px #9d9d9d;
+  height: 32px;
 }
 .menu h3 {
   color: white;
@@ -82,7 +82,7 @@ body {
   object-fit: cover;
   position: absolute;
 }
-.informationsContent{
+.informationsContent {
   display: flex;
   justify-content: space-between;
   padding-right: 120px;
@@ -91,7 +91,9 @@ body {
   height: 92%;
   position: absolute;
   background: radial-gradient(#ffffff4d, #000000dc);
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;  /* border: 2px solid white;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; /* border: 2px solid white;
 
   border-style: double; */
 }
@@ -108,8 +110,8 @@ body {
   flex-direction: column;
 }
 
-.informacoes h2{
-text-align: center;  
+.informacoes h2 {
+  text-align: center;
   width: 450px;
   font-family: "MonteCarlo", cursive;
   font-size: 9vh;
@@ -117,20 +119,20 @@ text-align: center;
   background-color: rgba(0, 0, 0, 0.939);
   text-shadow: 0px 0px 6px rgba(255, 255, 255, 0.939);
   margin: 25px 0 0 0;
-  border-radius: 20px 20px 0 0 ;
+  border-radius: 20px 20px 0 0;
   padding: 10px;
 }
 
-.textoIndex{
+.textoIndex {
   height: 100%;
   max-width: 450px;
   background-color: rgba(255, 255, 255, 0.816);
-  border-radius: 0 0 20px 20px  ;
+  border-radius: 0 0 20px 20px;
   padding: 25px;
 }
 
-.textoIndex p{
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+.textoIndex p {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 2.5vh;
   text-align: justify;
 }
@@ -144,7 +146,7 @@ p.desconto {
   margin-bottom: 10px;
 }
 
-p.ffinal{
+p.ffinal {
   text-align: center;
 }
 
@@ -161,14 +163,14 @@ p.ffinal{
   background-color: rgb(51, 51, 51);
   border-style: none;
   font-size: 4.5vh;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   color: white;
   border-radius: 5px;
   cursor: pointer;
   transition: 0.8s;
 }
 
-.buttonInfo button:hover{
+.buttonInfo button:hover {
   width: 400px;
   height: 80px;
 }
@@ -200,6 +202,12 @@ p.ffinal{
   position: absolute;
   width: 100%;
   height: 100%;
+}
+.contentHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 55px;
 }
 .tabela {
   width: 70%;
