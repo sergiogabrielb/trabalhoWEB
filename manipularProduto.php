@@ -6,12 +6,13 @@ $pdo = pdo_connect_mysql();
 $resultado = $pdo->prepare("SELECT * FROM produtos ORDER BY id DESC");
 $resultado->execute();
 
-$pesquisar = $_POST['pesquisar'];
 
-if(isset($_POST['pesquisar'])){
-    $result_produtos = $pdo->prepare("SELECT * FROM produtos WHERE titulo LIKE '%$pesquisar%' LIMIT 5");
-    $result_produtos->execute();
-    $resultado = $result_produtos;
+
+if (isset($_POST['pesquisar'])) {
+	$pesquisar = $_POST['pesquisar'];
+	$result_produtos = $pdo->prepare("SELECT * FROM produtos WHERE titulo LIKE '%$pesquisar%' LIMIT 5");
+	$result_produtos->execute();
+	$resultado = $result_produtos;
 }
 
 ?>
@@ -42,31 +43,39 @@ if(isset($_POST['pesquisar'])){
 
 					Cadastrar Produto</button></a>
 
-                    <form method="POST">
-                    <input type="text" name="pesquisar">
-                    <input type="submit" value="Pesquisar"></input>
-                </form>
+			<form method="POST">
+				<input type="text" name="pesquisar">
+				<input type="submit" value="Pesquisar"></input>
+			</form>
 			<div class="conteudoTabela">
 				<table class="tabela">
 					<tr bgcolor='#CCCCCC'>
+						<td>foto</td>
 						<td>Nome do produto</td>
 						<td>Descricao</td>
 						<td>Preço</td>
 						<td>Porcentagem de desconto</td>
 						<td>Estoque</td>
 						<td>Situacao</td>
+
 					</tr>
 					<?php
-					//while($res = mysql_fetch_array($result)) { // mysql_fetch_array is deprecated, we need to use mysqli_fetch_array 
+
 					foreach ($resultado as $res) {
+						$strm = $pdo->prepare("SELECT * FROM arquivos WHERE id = ?");
+						$strm->execute([$res['arquivoId']]);
+						$fotos = $strm->fetch(PDO::FETCH_ASSOC);
+
+
 						echo "<tr>";
+						echo "<td>" . "<img src=\"./upload/$fotos[arquivo]\" alt=foto style=\"width:50px; height:auto\">" . "</td>";
 						echo "<td>" . $res['titulo'] . "</td>";
 						echo "<td>" . $res['descricao'] . "</td>";
 						echo "<td>" . $res['preco'] . "</td>";
 						echo "<td>" . $res['porc_desconto'] . "%</td>";
 						echo "<td>" . $res['estoque'] . "</td>";
 						echo "<td>" . $res['situacao'] . "</td>";
-						echo "<td> <a class=noDecoration href=\"edit.php?id=$res[id]\"><button class=editDelete> Editar </button> </a><a class=noDecoration href=\"delete.php?id=$res[id]\" onClick=\"return confirm('Você tem certeza que deseja excluir esse produto?')\"><button class=editDelete>Excluir</Delete> </a></td>";
+						echo "<td> <a class=noDecoration href=\"edit.php?id=$res[id]\"><button class=editDelete> Editar </button> </a><a class=noDecoration href=\"delete.php?id=$res[id]\" onClick=\"return confirm('Você tem certeza que deseja excluir esse produto?')\"><button class=editDelete>Excluir</button> </a></td>";
 					}
 					?>
 				</table>
