@@ -1,23 +1,14 @@
 <?php
-/*
-// mysql_connect("database-host", "username", "password")
-$conn = mysql_connect("localhost","root","root") 
-			or die("cannot connected");
-
-// mysql_select_db("database-name", "connection-link-identifier")
-@mysql_select_db("test",$conn);
-*/
-
-/**
- * mysql_connect is deprecated
- * using mysqli_connect instead
- */
-
-$databaseHost = 'localhost';
-$databaseName = 'test';
-$databaseUsername = 'root';
-$databasePassword = '';
-
-$mysqli = mysqli_connect($databaseHost, $databaseUsername, $databasePassword, $databaseName); 
- 
-?>
+function pdo_connect_mysql()
+{
+	$DATABASE_HOST = 'localhost';
+	$DATABASE_USER = 'root';
+	$DATABASE_PASS = '';
+	$DATABASE_NAME = 'eletronic By';
+	try {
+		return new PDO('mysql:host=' . $DATABASE_HOST . ';dbname=' . $DATABASE_NAME . ';charset=utf8', $DATABASE_USER, $DATABASE_PASS);
+	} catch (PDOException $exception) {
+		// If there is an error with the connection, stop the script and display the error.
+		exit('Failed to connect to database!');
+	}
+}
