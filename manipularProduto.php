@@ -37,31 +37,16 @@ if (isset($_POST['pesquisar'])) {
     </div>
     <div class="content">
         <img src="./images/background.jpg" />
+
         <div class="conteudo">
-            <div class="contentHead">
-                <a href="add.html">
-                    <button class="addProduto">
-                        <i class="fas fa-plus"></i>
-                        Cadastrar Produto
-                    </button>
-                </a>
-                <form method="POST">
-                    <input type="text" name="pesquisar">
-                    <select name="situacao1" id="">
-                        <option value="" name="">
-                            Todos
-                        </option>
-                        <option value="disponivel" name="disponivel">
-                            Disponível
-                        </option>
-                        <option value="indisponivel" name="indisponivel">
-                            Indisponivel
-                        </option>
-                        <option value="oferta" name="oferta">Oferta</option>
-                    </select>
-                    <input type="submit" value="Pesquisar"></input>
-                </form>
-            </div>
+            <a href="add.html"><button class="addProduto"><i class="fas fa-plus"></i>
+
+                    Cadastrar Produto</button></a>
+
+            <form method="POST">
+                <input class="pesquisar" type="text" name="pesquisar">
+                <input class="editDelete2" type="submit" value="Pesquisar"></input>
+            </form>
             <div class="conteudoTabela">
                 <table class="tabela">
                     <tr bgcolor='#CCCCCC'>
@@ -72,8 +57,10 @@ if (isset($_POST['pesquisar'])) {
                         <td>Porcentagem de desconto</td>
                         <td>Estoque</td>
                         <td>Situacao</td>
+
                     </tr>
                     <?php
+
 					foreach ($resultado as $res) {
 						$strm = $pdo->prepare("SELECT * FROM arquivos WHERE id = ?");
 						$strm->execute([$res['arquivoId']]);
