@@ -159,7 +159,7 @@ body {
   border: 1px solid white;
   cursor: pointer;
   margin-left: 28%;
-  margin-top: 2%;
+  margin-top: 0.5%;
 }
 .buttonCadastro:hover {
   transform: scale(1.05);
