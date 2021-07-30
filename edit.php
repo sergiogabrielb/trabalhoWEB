@@ -34,7 +34,7 @@ if (isset($_POST['update'])) {
 		$resultado->execute([$_POST['titulo'], $_POST['descricao'], $_POST['preco'], $_POST['porc_desconto'], $_POST['estoque'], $_POST['id']]);
 
 		//redirectig to the display page. In our case, it is index.php
-		header("Location: index.php");
+		header("Location: manipularProduto.php");
 	}
 }
 ?>
@@ -58,7 +58,7 @@ $res = $resultados->fetch(PDO::FETCH_ASSOC);
 </head>
 
 <body>
-	<a href="index.php">Home</a>
+	<a href="manipularProduto.php">Voltar para edição de produtos</a>
 	<br /><br />
 
 	<form name="form1" method="post" action="edit.php">
