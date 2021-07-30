@@ -89,6 +89,7 @@ $res = $resultados->fetch(PDO::FETCH_ASSOC);
 						</option>
 						<option value="oferta" name="oferta">oferta</option>
 					</select>
+					<input type="file" />
 				</td>
 			</tr>
 			<tr>
