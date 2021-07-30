@@ -69,9 +69,20 @@ $res = $resultados->fetch(PDO::FETCH_ASSOC);
 </head>
 
 <body>
-	<div class="menu">
-		<h3><i class="fa fa-mobile" aria-hidden="true"></i>EletronicBuy</h3>
-		<a class="home" href="index.php"><i class="fa fa-home" aria-hidden="true"></i>Pagina Inicial</a>
+<div class="contentMenu">
+		<div class="menu">
+
+			<a href="/trabalhoWEB"><h3><i class="fa fa-mobile" aria-hidden="true"></i>EletronicBuy</h3></a>
+			<div class="buttonsMenu">
+				
+				<a href="manipularProduto.php"><button class="buttonMP">Promoções</button></a>
+				<a href="/trabalhoWEB"><button class="buttonMP">Todos os produtos</button></a>
+				<a href="add.html"><button class="buttonMP">Cadastro de produtos</button></a>
+				<a href="manipularProduto.php"><button class="buttonMP">Gerenciar produtos</button></a>
+
+			</div>
+
+		</div>
 	</div>
 	<div class="content">
 		<img class="imgfundo" src="./images/background.jpg" />
