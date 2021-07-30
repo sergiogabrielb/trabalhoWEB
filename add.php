@@ -25,10 +25,6 @@
 				echo "<font color='red'>O preço está vazio.</font><br/>";
 			}
 
-			if (empty($_POST['porc_desconto'])) {
-				echo "<font color='red'>A porcentagem de desconto está vazia.</font><br/>";
-			}
-
 			if (empty($_POST['estoque'])) {
 				echo "<font color='red'>O estoque do produto está vazio.</font><br/>";
 			}
