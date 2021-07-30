@@ -58,14 +58,14 @@ if (isset($_POST['pesquisar'])) {
 								echo "<td>";
 								echo "<ul>";
 								echo "<div class=Total>";
-								echo "<div class=listImg>" . "<img class=imglist src=\"./upload/$fotos[arquivo]\" alt=foto style=\"width:50px; height:auto\">" . "</div>";
+								echo "<div class=listImg>" . "<img class=imglist src=\"./upload/$fotos[arquivo]\" alt=foto>" . "</div>";
 								echo "<div class=listTitulo>" . $res['titulo'] . "</div>";
 								echo "<div class=listdescricao>" . $res['descricao'] . "</div>";
 								echo "<div class=listpreco>" . $res['preco'] . "</div>";
 								echo "<div class=listdesconto>" . $res['porc_desconto'] . "%</div>";
 								echo "<div class=listestoque>" . $res['estoque'] . "</div>";
 								echo "<div class=listsituacao>" . $res['situacao'] . "</div>";
-								echo " <a class=noDecoration href=\"edit.php?id=$res[id]\"><button class=editDelete> Editar </button> </a><a class=noDecoration href=\"delete.php?id=$res[id]\" onClick=\"return confirm('Você tem certeza que deseja excluir esse produto?')\"><button class=editDelete>Excluir</button> </a></ul></div><td>";
+								echo "</ul></div><td>";
 							}
 							?>
 						</div>
