@@ -39,18 +39,18 @@
 					<h2>Seja bem vindo (a)</h2>
 					<div class="textoIndex">
 						<p>
-							A EletronicBuy tem os melhores preços de smartphones, navegue e veja aparelhos de última geração com promoções imperdíveis.
+							A EletronicBuy tem os melhores preços de smartphones, navegue e veja aparelhos de última geração com promoções imperdíveis. 
 						</p>
 						<p>Aproveite também nossos <strong>Notbooks, headphones e tablets</strong> com desconto de até</p>
 						<p class="desconto">40%</p>
 						<p class="ffinal">Produtos de qualidade e procedência é aqui, na <strong>EletronicBuy</strong></p>
 						<div class="buttonInfo">
-							<a href="add.html">
-								<button>Começar</button>
-							</a>
-						</div>
+						<a href="add.html">
+							<button>Começar</button>
+						</a>
 					</div>
-
+					</div>
+					
 				</div>
 			</div>
 
