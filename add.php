@@ -38,10 +38,21 @@
 		} else {
 			// if all the fields are filled (not empty) 
 
-			//insert data to database	
-			$resultado = $pdo->prepare("INSERT INTO produtos (titulo, descricao, preco, porc_desconto, estoque, situacao) VALUES (?, ?, ?, ?, ?, ?)");
+			//insert data to database
 
-			$resultado->execute([$_POST['titulo'], $_POST['descricao'], $_POST['preco'], $_POST['porc_desconto'], $_POST['estoque'], $_POST['situacao']]);
+			//upando arquivos
+			$min = 0;
+			$max = 50000;
+
+			$fileName = rand($min, $max) . $_FILES['file']['name'];
+			$stmt = $pdo->prepare('INSERT INTO arquivos (arquivo) VALUES (?)');
+			$stmt->execute([$fileName]);
+			move_uploaded_file($_FILES['file']['tmp_name'], 'upload/' . $fileName);
+			$arquivoId = $pdo->lastInsertId();
+
+			$resultado = $pdo->prepare("INSERT INTO produtos (titulo, descricao, preco, porc_desconto, estoque, situacao, arquivoId) VALUES (?, ?, ?, ?, ?, ?, ?)");
+
+			$resultado->execute([$_POST['titulo'], $_POST['descricao'], $_POST['preco'], $_POST['porc_desconto'], $_POST['estoque'], $_POST['situacao'], $arquivoId]);
 
 			echo "<font color='green'>O produto foi adicionado com sucesso!.";
 			echo "<br/><a href='manipularProduto.php'>Visualizar resultado</a>";

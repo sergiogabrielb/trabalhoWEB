@@ -37,6 +37,7 @@
             action="add.php"
             method="post"
             name="form1"
+            enctype="multipart/form-data"
           >
             <h1 class="tituloCadastro">Cadastro de produtos</h1>
             <div class="inputsCadastro">
@@ -54,6 +55,10 @@
                   <div class="nomeProduto">
                     <p>Preço:</p>
                     <input type="text" name="preco" />
+                  </div>
+                  <div class="porc_desconto">
+                    <p>Porcentagem de desconto:</p>
+                    <input type="text" name="porc_desconto" />
                   </div>
                 </div>
                 <div class="estoqueProduto">
@@ -74,7 +79,7 @@
                       </option>
                       <option value="oferta" name="oferta">oferta</option>
                     </select>
-                    <input type="file" />
+                    <input type="file" required name="file" />
                   </div>
                 </div>
                 <div class="botaoCadastrar">

@@ -6,12 +6,13 @@ $pdo = pdo_connect_mysql();
 $resultado = $pdo->prepare("SELECT * FROM produtos ORDER BY id DESC");
 $resultado->execute();
 
-$pesquisar = $_POST['pesquisar'];
 
-if(isset($_POST['pesquisar'])){
-    $result_produtos = $pdo->prepare("SELECT * FROM produtos WHERE titulo LIKE '%$pesquisar%' LIMIT 5");
-    $result_produtos->execute();
-    $resultado = $result_produtos;
+
+if (isset($_POST['pesquisar'])) {
+	$pesquisar = $_POST['pesquisar'];
+	$result_produtos = $pdo->prepare("SELECT * FROM produtos WHERE titulo LIKE '%$pesquisar%' LIMIT 5");
+	$result_produtos->execute();
+	$resultado = $result_produtos;
 }
 
 ?>
@@ -42,10 +43,10 @@ if(isset($_POST['pesquisar'])){
 
 					Cadastrar Produto</button></a>
 
-                    <form method="POST">
-                    <input type="text" name="pesquisar">
-                    <input type="submit" value="Pesquisar"></input>
-                </form>
+			<form method="POST">
+				<input type="text" name="pesquisar">
+				<input type="submit" value="Pesquisar"></input>
+			</form>
 			<div class="conteudoTabela">
 				<table class="tabela">
 					<tr bgcolor='#CCCCCC'>
