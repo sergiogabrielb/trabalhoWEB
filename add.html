@@ -1,32 +1,49 @@
 <html>
-<head>
-	<title>Add Data</title>
-</head>
+  <head>
+    <title>Add Data</title>
+  </head>
 
-<body>
-	<a href="index.php">Home</a>
-	<br/><br/>
+  <body>
+    <a href="index.php">Home</a>
+    <br /><br />
 
-	<form action="add.php" method="post" name="form1">
-		<table width="25%" border="0">
-			<tr> 
-				<td>Name</td>
-				<td><input type="text" name="name"></td>
-			</tr>
-			<tr> 
-				<td>Age</td>
-				<td><input type="text" name="age"></td>
-			</tr>
-			<tr> 
-				<td>Email</td>
-				<td><input type="text" name="email"></td>
-			</tr>
-			<tr> 
-				<td></td>
-				<td><input type="submit" name="Submit" value="Add"></td>
-			</tr>
-		</table>
-	</form>
-</body>
+    <form action="add.php" method="post" name="form1">
+      <table width="25%" border="0">
+        <tr>
+          <td>Nome do produto</td>
+          <td><input type="text" name="titulo" /></td>
+        </tr>
+        <tr>
+          <td>Descricao</td>
+          <td><input type="text" name="descricao" /></td>
+        </tr>
+        <tr>
+          <td>Preço</td>
+          <td><input type="text" name="preco" /></td>
+        </tr>
+        <tr>
+          <td>Porcentagem de desconto</td>
+          <td><input type="text" name="porc_desconto" /></td>
+        </tr>
+        <tr>
+          <td>Estoque</td>
+          <td><input type="text" name="estoque" /></td>
+        </tr>
+        <tr>
+          <td>Situacao</td>
+          <td>
+            <select name="situacao" id="">
+              <option value="1" name="disponivel">disponivel</option>
+              <option value="1" name="indisponivel">indisponivel</option>
+              <option value="1" name="oferta">oferta</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><input type="submit" name="Submit" value="Adicionar" /></td>
+        </tr>
+      </table>
+    </form>
+  </body>
 </html>
-
