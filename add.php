@@ -44,7 +44,7 @@
 
 			$resultado->execute([$_POST['titulo'], $_POST['descricao'], $_POST['preco'], $_POST['porc_desconto'], $_POST['estoque']]);
 
-			echo "<font color='green'>Data added successfully.";
+			echo "<font color='green'>O produto foi adicionado com sucesso!.";
 			echo "<br/><a href='index.php'>View Result</a>";
 		}
 	}
