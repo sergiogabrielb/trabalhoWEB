@@ -50,26 +50,22 @@ if (isset($_POST['pesquisar'])) {
 			<div class="conteudoTabela">
 				<table class="tabela">
 					<tr bgcolor='#CCCCCC'>
-						<td>Nome do produto</td>
-						<td>Descricao</td>
-						<td>Preço</td>
-						<td>Porcentagem de desconto</td>
-						<td>Estoque</td>
-						<td>Situacao</td>
 					</tr>
-					<?php
-					//while($res = mysql_fetch_array($result)) { // mysql_fetch_array is deprecated, we need to use mysqli_fetch_array 
-					foreach ($resultado as $res) {
-						echo "<tr>";
-						echo "<td>" . $res['titulo'] . "</td>";
-						echo "<td>" . $res['descricao'] . "</td>";
-						echo "<td>" . $res['preco'] . "</td>";
-						echo "<td>" . $res['porc_desconto'] . "%</td>";
-						echo "<td>" . $res['estoque'] . "</td>";
-						echo "<td>" . $res['situacao'] . "</td>";
-						echo "<td> <a class=noDecoration href=\"edit.php?id=$res[id]\"><button class=editDelete> Editar </button> </a><a class=noDecoration href=\"delete.php?id=$res[id]\" onClick=\"return confirm('Você tem certeza que deseja excluir esse produto?')\"><button class=editDelete>Excluir</button> </a></td>";
-					}
-					?>
+					<div class="produtoListado">
+						<?php
+						//while($res = mysql_fetch_array($result)) { // mysql_fetch_array is deprecated, we need to use mysqli_fetch_array 
+						foreach ($resultado as $res) {
+							echo "<ul>";
+							echo "<li>" . $res['titulo'] . "</li>";
+							echo "<li>" . $res['descricao'] . "</li>";
+							echo "<li>" . $res['preco'] . "</li>";
+							echo "<li>" . $res['porc_desconto'] . "%</li>";
+							echo "<li>" . $res['estoque'] . "</li>";
+							echo "<li>" . $res['situacao'] . "</li>";
+							echo "<li> <a class=noDecoration href=\"edit.php?id=$res[id]\"><button class=editDelete> Editar </button> </a><a class=noDecoration href=\"delete.php?id=$res[id]\" onClick=\"return confirm('Você tem certeza que deseja excluir esse produto?')\"><button class=editDelete>Excluir</button> </a></td>";
+						}
+						?>
+					</div>
 				</table>
 			</div>
 

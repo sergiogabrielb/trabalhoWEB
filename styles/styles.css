@@ -281,3 +281,18 @@ body {
   padding-top: 5px;
   margin-right: 5px;
 }
+.editDelete2 {
+  width: 10%;
+  background-color: black;
+  color: white;
+}
+.pesquisar {
+  background-color: black;
+  color: white;
+  margin-left: 15%;
+}
+.produtoListado {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
