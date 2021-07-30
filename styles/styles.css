@@ -552,3 +552,18 @@ p.ffinal {
   background-color: black;
   color: white;
 }
+.imagemToda {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 80px;
+  position: relative;
+  margin: 0 auto;
+}
+.imglist2 {
+  width: 100%;
+  margin: 0 auto;
+  height: auto;
+  object-fit: contain !important;
+}
