@@ -183,7 +183,7 @@ body {
 }
 .nomeProduto {
   width: 90%;
-  height: 10%;
+  height: 8.5%;
   display: flex;
   margin-left: 8%;
   align-items: center;
@@ -270,4 +270,10 @@ body {
 .selectProduto {
   width: 120% !important;
   font-size: 25px !important;
+}
+.porcProduto {
+  width: 120% !important;
+}
+.file {
+  height: 45% !important;
 }
