@@ -33,7 +33,7 @@
 			<div class="informationsContent">
 				<div class="lottieArea">
 					<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-					<lottie-player src="https://assets10.lottiefiles.com/packages/lf20_0i7tmxi6.json" background="transparent" speed="1" style="width: 500px; height: 500px;" loop autoplay></lottie-player>
+					<lottie-player src="https://assets10.lottiefiles.com/packages/lf20_0i7tmxi6.json" background="transparent" speed="1" style="width: 900px; height: 900px;" loop autoplay></lottie-player>
 				</div>
 				<div class="informacoes">
 					<h2>Seja bem vindo (a)</h2>

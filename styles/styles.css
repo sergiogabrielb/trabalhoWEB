@@ -97,8 +97,12 @@ body {
   border-style: double; */
 }
 .lottieArea {
-  margin-top: 40vh;
-  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10vh;
+  margin-left: 3vw;
+  height: 100%;
   width: 50%;
   max-height: 628px;
 }
@@ -108,7 +112,7 @@ body {
   justify-content: center;
   align-items: center;
   width: 50%;
-  height: 100%;
+  height: 80%;
   max-height: 628px;
   padding-bottom: 3vh;
 
@@ -116,9 +120,9 @@ body {
   flex-direction: column;
 }
 
-.informacoes h2 {
-  text-align: center;
-  width: 450px;
+.informacoes h2{
+text-align: center;  
+  width: 600px;
   font-family: "MonteCarlo", cursive;
   font-size: 9vh;
   color: #ffffff;
@@ -131,7 +135,7 @@ body {
 
 .textoIndex {
   height: 100%;
-  max-width: 450px;
+  width: 600px;
   background-color: rgba(255, 255, 255, 0.816);
   border-radius: 0 0 20px 20px;
   padding: 25px;
@@ -208,6 +212,12 @@ p.ffinal {
   position: absolute;
   width: 100%;
   height: 90%;
+}
+.contentHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 55px;
 }
 .tabela {
   width: 70%;
