@@ -189,6 +189,7 @@ body {
   align-items: center;
   justify-content: flex-start;
   margin-top: 2%;
+  border-bottom: 1px solid #454545;
 }
 .nomeProduto input {
   width: 200%;
@@ -265,4 +266,8 @@ body {
 }
 .estoProduto {
   width: 31% !important;
+}
+.selectProduto {
+  width: 120% !important;
+  font-size: 25px !important;
 }
