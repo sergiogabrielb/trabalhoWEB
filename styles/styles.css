@@ -177,7 +177,7 @@ body {
 }
 .inputsCadastro {
   width: 95%;
-  height: 100%;
+  height: 95%;
   display: flex;
   margin-top: -2%;
 }
@@ -192,7 +192,7 @@ body {
   border-bottom: 1px solid #454545;
 }
 .nomeProduto input {
-  width: 200%;
+  width: 100%;
   height: 35%;
   margin-top: 1%;
   background-color: black;
