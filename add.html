@@ -1,51 +1,95 @@
 <html>
   <head>
-    <title>Add Data</title>
+    <meta charset="utf-8" />
+    <link href="./styles/styles.css" rel="stylesheet" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+    />
+    <title>EletronicBuy</title>
   </head>
 
   <body>
-    <a href="index.php">Home</a>
-    <br /><br />
-
-    <form action="add.php" method="post" name="form1">
-      <table width="25%" border="0">
-        <tr>
-          <td>Nome do produto</td>
-          <td><input type="text" name="titulo" /></td>
-        </tr>
-        <tr>
-          <td>Descricao</td>
-          <td><input type="text" name="descricao" /></td>
-        </tr>
-        <tr>
-          <td>Preço</td>
-          <td><input type="text" name="preco" /></td>
-        </tr>
-        <tr>
-          <td>Porcentagem de desconto</td>
-          <td><input type="text" name="porc_desconto" /></td>
-        </tr>
-        <tr>
-          <td>Estoque</td>
-          <td><input type="text" name="estoque" /></td>
-        </tr>
-        <tr>
-          <td>Situacao</td>
-          <td>
-            <select name="situacao" id="">
-              <option value="disponivel" name="disponivel">disponivel</option>
-              <option value="indisponivel" name="indisponivel">
-                indisponivel
-              </option>
-              <option value="oferta" name="oferta">oferta</option>
-            </select>
-          </td>
-        </tr>
-        <tr>
-          <td></td>
-          <td><input type="submit" name="Submit" value="Adicionar" /></td>
-        </tr>
-      </table>
-    </form>
+    <div class="menu">
+      <h3><i class="fa fa-mobile" aria-hidden="true"></i>EletronicBuy</h3>
+      <a class="home" href="index.php"
+        ><i class="fa fa-home" aria-hidden="true"></i> Pagina</a
+      >
+    </div>
+    <div class="content">
+      <img src="./images/background.jpg" />
+      <div class="conteudo">
+        <div class="conteudoCadastro">
+          <form
+            class="formCadastro"
+            action="add.php"
+            method="post"
+            name="form1"
+          >
+            <table width="25%" border="0">
+              <tr>
+                <td class="Td">
+                  Nome do produto <input type="text" name="titulo" />
+                </td>
+              </tr>
+              <tr>
+                <td class="Td">
+                  Descricao<input type="text" name="descricao" />
+                </td>
+              </tr>
+              <tr>
+                <td class="Td">Preço<input type="text" name="preco" /></td>
+              </tr>
+              <tr>
+                <td class="Td">
+                  Porcentagem de desconto<input
+                    type="text"
+                    name="porc_desconto"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td class="Td">Estoque<input type="text" name="estoque" /></td>
+              </tr>
+              <tr>
+                <td class="Td">
+                  Situacao
+                  <select name="situacao" id="">
+                    <option value="disponivel" name="disponivel">
+                      Disponível
+                    </option>
+                    <option value="indisponivel" name="indisponivel">
+                      Indisponivel
+                    </option>
+                    <option value="oferta" name="oferta">oferta</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td class="Td">
+                  <input
+                    class="buttonCadastro"
+                    type="submit"
+                    name="Submit"
+                    value="Adicionar"
+                  />
+                </td>
+              </tr>
+            </table>
+          </form>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <i class="fab fa-instagram"
+        ><a href="instagram.com" class="redesSociais">Instagram</a></i
+      >
+      <i class="fab fa-twitter"
+        ><a href="instagram.com" class="redesSociais">Instagram</a></i
+      >
+      <i class="fab fa-facebook"
+        ><a href="instagram.com" class="redesSociais">Instagram</a></i
+      >
+    </footer>
   </body>
 </html>
