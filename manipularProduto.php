@@ -31,10 +31,21 @@ if (isset($_POST['pesquisar'])) {
 </head>
 
 <body>
-    <div class="menu">
+<div class="contentMenu">
+		<div class="menu">
 
-        <h3><i class="fa fa-mobile" aria-hidden="true"></i>EletronicBuy</h3>
-    </div>
+			<a href="/trabalhoWEB"><h3><i class="fa fa-mobile" aria-hidden="true"></i>EletronicBuy</h3></a>
+			<div class="buttonsMenu">
+				
+				<a href="manipularProduto.php"><button class="buttonMP">Promoções</button></a>
+				<a href="/trabalhoWEB"><button class="buttonMP">Todos os produtos</button></a>
+				<a href="add.html"><button class="buttonMP">Cadastro de produtos</button></a>
+				<a href="manipularProduto.php"><button class="buttonMP">Gerenciar produtos</button></a>
+
+			</div>
+
+		</div>
+	</div>
     <div class="content">
         <img src="./images/background.jpg" />
 
