@@ -486,3 +486,11 @@ p.ffinal {
 .listsituacao {
   width: 10%;
 }
+.listImg {
+  width: 30%;
+  height: 100%;
+}
+.imglist {
+  min-width: 25%;
+  height: 100%;
+}

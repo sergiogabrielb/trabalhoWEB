@@ -50,10 +50,15 @@ if (isset($_POST['pesquisar'])) {
 							<?php
 							//while($res = mysql_fetch_array($result)) { // mysql_fetch_array is deprecated, we need to use mysqli_fetch_array 
 							foreach ($resultado as $res) {
+								$strm = $pdo->prepare("SELECT * FROM arquivos WHERE id = ?");
+								$strm->execute([$res['arquivoId']]);
+								$fotos = $strm->fetch(PDO::FETCH_ASSOC);
+
 								echo "<tr>";
 								echo "<td>";
 								echo "<ul>";
 								echo "<div class=Total>";
+								echo "<div class=listImg>" . "<img class=imglist src=\"./upload/$fotos[arquivo]\" alt=foto style=\"width:50px; height:auto\">" . "</div>";
 								echo "<div class=listTitulo>" . $res['titulo'] . "</div>";
 								echo "<div class=listdescricao>" . $res['descricao'] . "</div>";
 								echo "<div class=listpreco>" . $res['preco'] . "</div>";
