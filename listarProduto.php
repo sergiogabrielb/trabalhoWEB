@@ -36,36 +36,40 @@ if (isset($_POST['pesquisar'])) {
 		<h3><i class="fa fa-mobile" aria-hidden="true"></i>EletronicBuy</h3>
 	</div>
 	<div class="content">
-		<img src="./images/background.jpg" />
+		<img class="img3" src="./images/background.jpg" />
 
-		<div class="conteudo">
-			<a href="add.html"><button class="addProduto"><i class="fas fa-plus"></i>
-
-					Cadastrar Produto</button></a>
-
-			<form method="POST">
+		<div class="conteudo3">
+			<form class="post" method="POST">
 				<input class="pesquisar" type="text" name="pesquisar">
 				<input class="editDelete2" type="submit" value="Pesquisar"></input>
 			</form>
 			<div class="conteudoTabela">
 				<table class="tabela">
 					<tr bgcolor='#CCCCCC'>
+						<div>
+							<?php
+							//while($res = mysql_fetch_array($result)) { // mysql_fetch_array is deprecated, we need to use mysqli_fetch_array 
+							foreach ($resultado as $res) {
+								$strm = $pdo->prepare("SELECT * FROM arquivos WHERE id = ?");
+								$strm->execute([$res['arquivoId']]);
+								$fotos = $strm->fetch(PDO::FETCH_ASSOC);
+
+								echo "<tr>";
+								echo "<td>";
+								echo "<ul>";
+								echo "<div class=Total>";
+								echo "<div class=listImg>" . "<img class=imglist src=\"./upload/$fotos[arquivo]\" alt=foto style=\"width:50px; height:auto\">" . "</div>";
+								echo "<div class=listTitulo>" . $res['titulo'] . "</div>";
+								echo "<div class=listdescricao>" . $res['descricao'] . "</div>";
+								echo "<div class=listpreco>" . $res['preco'] . "</div>";
+								echo "<div class=listdesconto>" . $res['porc_desconto'] . "%</div>";
+								echo "<div class=listestoque>" . $res['estoque'] . "</div>";
+								echo "<div class=listsituacao>" . $res['situacao'] . "</div>";
+								echo " <a class=noDecoration href=\"edit.php?id=$res[id]\"><button class=editDelete> Editar </button> </a><a class=noDecoration href=\"delete.php?id=$res[id]\" onClick=\"return confirm('Você tem certeza que deseja excluir esse produto?')\"><button class=editDelete>Excluir</button> </a></ul></div><td>";
+							}
+							?>
+						</div>
 					</tr>
-					<div class="produtoListado">
-						<?php
-						//while($res = mysql_fetch_array($result)) { // mysql_fetch_array is deprecated, we need to use mysqli_fetch_array 
-						foreach ($resultado as $res) {
-							echo "<ul>";
-							echo "<li>" . $res['titulo'] . "</li>";
-							echo "<li>" . $res['descricao'] . "</li>";
-							echo "<li>" . $res['preco'] . "</li>";
-							echo "<li>" . $res['porc_desconto'] . "%</li>";
-							echo "<li>" . $res['estoque'] . "</li>";
-							echo "<li>" . $res['situacao'] . "</li>";
-							echo "<li> <a class=noDecoration href=\"edit.php?id=$res[id]\"><button class=editDelete> Editar </button> </a><a class=noDecoration href=\"delete.php?id=$res[id]\" onClick=\"return confirm('Você tem certeza que deseja excluir esse produto?')\"><button class=editDelete>Excluir</button> </a></td>";
-						}
-						?>
-					</div>
 				</table>
 			</div>
 
