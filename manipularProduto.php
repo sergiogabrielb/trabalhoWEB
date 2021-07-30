@@ -45,6 +45,18 @@ if (isset($_POST['pesquisar'])) {
 
             <form method="POST">
                 <input class="pesquisar" type="text" name="pesquisar">
+                <select name="situacao1" id="">
+                    <option value="" name="">
+                        Todos
+                    </option>
+                    <option value="disponivel" name="disponivel">
+                        Disponível
+                    </option>
+                    <option value="indisponivel" name="indisponivel">
+                        Indisponivel
+                    </option>
+                    <option value="oferta" name="oferta">Oferta</option>
+                </select>
                 <input class="editDelete2" type="submit" value="Pesquisar"></input>
             </form>
             <div class="conteudoTabela">
