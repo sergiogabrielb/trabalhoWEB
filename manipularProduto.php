@@ -63,9 +63,9 @@ if(isset($_POST['pesquisar'])){
 						echo "<td>" . $res['titulo'] . "</td>";
 						echo "<td>" . $res['descricao'] . "</td>";
 						echo "<td>" . $res['preco'] . "</td>";
-						echo "<td>" . $res['porc_desconto'] . "</td>";
+						echo "<td>" . $res['porc_desconto'] . "%</td>";
 						echo "<td>" . $res['estoque'] . "</td>";
-						echo "<td>" . $res['preco'] . "</td>";
+						echo "<td>" . $res['situacao'] . "</td>";
 						echo "<td> <a class=noDecoration href=\"edit.php?id=$res[id]\"><button class=editDelete> Editar </button> </a><a class=noDecoration href=\"delete.php?id=$res[id]\" onClick=\"return confirm('Você tem certeza que deseja excluir esse produto?')\"><button class=editDelete>Excluir</Delete> </a></td>";
 					}
 					?>

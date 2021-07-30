@@ -5,7 +5,7 @@ $pdo = pdo_connect_mysql();
 if (isset($_POST['update'])) {
 
 	// checking empty fields
-	if (empty($_POST['titulo']) || empty($_POST['descricao']) || empty($_POST['preco']) || empty($_POST['porc_desconto']) || empty($_POST['estoque'])) {
+	if (empty($_POST['titulo']) || empty($_POST['descricao']) || empty($_POST['preco']) || empty($_POST['estoque']) || empty($_POST['situacao'])) {
 
 		if (empty($_POST['titulo'])) {
 			echo "<font color='red'>O nome do produto está vazio</font><br/>";
@@ -23,11 +23,15 @@ if (isset($_POST['update'])) {
 			echo "<font color='red'>O estoque do produto está vazio.</font><br/>";
 		}
 
+		if (empty($_POST['situacao'])) {
+			echo "<font color='red'>Você não selecionou uma situação.</font><br/>";
+		}
+
 		echo "<br/><a href='javascript:self.history.back();'>clique aqui para voltar</a>";
 	} else {
 		//updating the table
 		$resultado = $pdo->prepare("UPDATE produtos SET titulo = ?, descricao = ?, preco = ?, porc_desconto = ?, estoque = ? WHERE id = ?");
-		$resultado->execute([$_POST['titulo'], $_POST['descricao'], $_POST['preco'], $_POST['porc_desconto'], $_POST['estoque'], $_POST['id']]);
+		$resultado->execute([$_POST['titulo'], $_POST['descricao'], $_POST['preco'], $_POST['porc_desconto'], $_POST['estoque'], $_POST['situacao'], $_POST['id']]);
 
 		//redirectig to the display page. In our case, it is index.php
 		header("Location: manipularProduto.php");
@@ -89,6 +93,7 @@ $res = $resultados->fetch(PDO::FETCH_ASSOC);
 						</option>
 						<option value="oferta" name="oferta">oferta</option>
 					</select>
+					<input type="file" />
 				</td>
 			</tr>
 			<tr>
