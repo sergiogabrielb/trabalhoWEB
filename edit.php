@@ -1,34 +1,38 @@
 <?php
 // including the database connection file
 include_once("config.php");
+$pdo = pdo_connect_mysql();
+if (isset($_POST['update'])) {
 
-if(isset($_POST['update']))
-{	
-
-	$id = mysqli_real_escape_string($mysqli, $_POST['id']);
-	
-	$name = mysqli_real_escape_string($mysqli, $_POST['name']);
-	$age = mysqli_real_escape_string($mysqli, $_POST['age']);
-	$email = mysqli_real_escape_string($mysqli, $_POST['email']);	
-	
 	// checking empty fields
-	if(empty($name) || empty($age) || empty($email)) {	
-			
-		if(empty($name)) {
-			echo "<font color='red'>Name field is empty.</font><br/>";
+	if (empty($_POST['titulo']) || empty($_POST['descricao']) || empty($_POST['preco']) || empty($_POST['porc_desconto']) || empty($_POST['estoque'])) {
+
+		if (empty($_POST['titulo'])) {
+			echo "<font color='red'>O nome do produto está vazio</font><br/>";
 		}
-		
-		if(empty($age)) {
-			echo "<font color='red'>Age field is empty.</font><br/>";
+
+		if (empty($_POST['descricao'])) {
+			echo "<font color='red'>A descricao está vazia.</font><br/>";
 		}
-		
-		if(empty($email)) {
-			echo "<font color='red'>Email field is empty.</font><br/>";
-		}		
-	} else {	
+
+		if (empty($_POST['preco'])) {
+			echo "<font color='red'>O preço está vazio.</font><br/>";
+		}
+
+		if (empty($_POST['porc_desconto'])) {
+			echo "<font color='red'>A porcentagem de desconto está vazia.</font><br/>";
+		}
+
+		if (empty($_POST['estoque'])) {
+			echo "<font color='red'>O estoque do produto está vazio.</font><br/>";
+		}
+
+		echo "<br/><a href='javascript:self.history.back();'>clique aqui para voltar</a>";
+	} else {
 		//updating the table
-		$result = mysqli_query($mysqli, "UPDATE users SET name='$name',age='$age',email='$email' WHERE id=$id");
-		
+		$resultado = $pdo->prepare("UPDATE produtos SET titulo = ?, descricao = ?, preco = ?, porc_desconto = ?, estoque = ? WHERE id = ?");
+		$resultado->execute([$_POST['titulo'], $_POST['descricao'], $_POST['preco'], $_POST['porc_desconto'], $_POST['estoque'], $_POST['id']]);
+
 		//redirectig to the display page. In our case, it is index.php
 		header("Location: index.php");
 	}
@@ -36,46 +40,67 @@ if(isset($_POST['update']))
 ?>
 <?php
 //getting id from url
-$id = $_GET['id'];
-
-//selecting data associated with this particular id
-$result = mysqli_query($mysqli, "SELECT * FROM users WHERE id=$id");
-
-while($res = mysqli_fetch_array($result))
-{
-	$name = $res['name'];
-	$age = $res['age'];
-	$email = $res['email'];
+if (isset($_GET['id'])) {
+	$id = $_GET['id'];
 }
+
+if (!isset($id)) {
+	return;
+}
+$resultados = $pdo->prepare("SELECT * FROM produtos WHERE id = ?");
+$resultados->execute([$id]);
+$res = $resultados->fetch(PDO::FETCH_ASSOC);
 ?>
 <html>
-<head>	
-	<title>Edit Data</title>
+
+<head>
+	<title>Editar produto</title>
 </head>
 
 <body>
 	<a href="index.php">Home</a>
-	<br/><br/>
-	
+	<br /><br />
+
 	<form name="form1" method="post" action="edit.php">
 		<table border="0">
-			<tr> 
-				<td>Name</td>
-				<td><input type="text" name="name" value="<?php echo $name;?>"></td>
-			</tr>
-			<tr> 
-				<td>Age</td>
-				<td><input type="text" name="age" value="<?php echo $age;?>"></td>
-			</tr>
-			<tr> 
-				<td>Email</td>
-				<td><input type="text" name="email" value="<?php echo $email;?>"></td>
+			<tr>
+				<td>Nome do produto</td>
+				<td><input type="text" name="titulo" value="<?php echo $res['titulo']; ?>"></td>
 			</tr>
 			<tr>
-				<td><input type="hidden" name="id" value=<?php echo $_GET['id'];?>></td>
-				<td><input type="submit" name="update" value="Update"></td>
+				<td>Descricao</td>
+				<td><input type="text" name="descricao" value="<?php echo $res['descricao']; ?>"></td>
+			</tr>
+			<tr>
+				<td>Preço</td>
+				<td><input type="text" name="preco" value="<?php echo  $res['preco']; ?>"></td>
+			</tr>
+			<tr>
+				<td>Porcentagem de desconto</td>
+				<td><input type="text" name="porc_desconto" value="<?php echo  $res['porc_desconto']; ?>"></td>
+			</tr>
+			<tr>
+				<td>Estoque</td>
+				<td><input type="text" name="estoque" value="<?php echo  $res['estoque']; ?>"></td>
+			</tr>
+			<tr>
+				<td>Situacao</td>
+				<td>
+					<select name="situacao" id="">
+						<option value="disponivel" name="disponivel">disponivel</option>
+						<option value="indisponivel" name="indisponivel">
+							indisponivel
+						</option>
+						<option value="oferta" name="oferta">oferta</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td><input type="hidden" name="id" value=<?php echo $_GET['id']; ?>></td>
+				<td><input type="submit" name="update" value="Atualizar"></td>
 			</tr>
 		</table>
 	</form>
 </body>
+
 </html>
