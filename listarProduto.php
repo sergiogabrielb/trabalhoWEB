@@ -41,7 +41,7 @@ if (isset($_POST['pesquisar'])) {
 			<div class="buttonsMenu">
 				
 				<a href="promocoes.php"><button class="buttonMP">Promoções</button></a>
-				<a href="/trabalhoWEB/listarProduto.php"><button class="buttonMP">Todos os produtos</button></a>
+				<a href="listarProduto.php"><button class="buttonMP">Todos os produtos</button></a>
 				<a href="add.html"><button class="buttonMP">Cadastro de produtos</button></a>
 				<a href="manipularProduto.php"><button class="buttonMP">Gerenciar produtos</button></a>
 

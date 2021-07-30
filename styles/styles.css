@@ -57,12 +57,19 @@ body {
   height: 32px;
 }
 .menu h3 {
+  width: 50%;
   color: white;
   margin-left: 5%;
   font-size: 30px;
   border-bottom: 1px solid white;
   font-family: "MonteCarlo", cursive;
 }
+
+.menu a {
+  width: 50%;
+  text-decoration: none;
+}
+
 .menu i {
   color: white;
   margin-right: 5px;
