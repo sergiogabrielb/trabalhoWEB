@@ -21,6 +21,7 @@
 		<img src="./images/background.jpg" />
 
 	</div>
+	<a href="manipularProduto.php"><button>Clique aqui</button></a>
 	<footer class="footer"><i class="fab fa-instagram"><a href="instagram.com" class="redesSociais">Instagram</a></i>
 		<i class="fab fa-twitter"><a href="instagram.com" class="redesSociais">Instagram</a></i>
 		<i class="fab fa-facebook"><a href="instagram.com" class="redesSociais">Instagram</a></i>
