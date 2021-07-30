@@ -192,7 +192,7 @@ body {
   border-bottom: 1px solid #454545;
 }
 .nomeProduto input {
-  width: 100%;
+  width: 70%;
   height: 35%;
   margin-top: 1%;
   background-color: black;
@@ -203,7 +203,7 @@ body {
   border: 1px solid white;
 }
 .nomeProduto p {
-  width: 25%;
+  width: 50%;
   font-size: 30px;
   white-space: nowrap;
   overflow: hidden;
@@ -255,25 +255,13 @@ body {
   font-size: 30px;
   margin-top: 5%;
 }
-.nameProduto {
-  width: 80% !important;
-}
-.descProduto {
-  width: 40% !important;
-}
 .selectCadastro {
-  width: 150%;
-}
-.estoProduto {
-  width: 31% !important;
+  width: 70% !important;
 }
 .selectProduto {
-  width: 120% !important;
-  font-size: 25px !important;
-}
-.porcProduto {
-  width: 120% !important;
+  width: 50% !important;
+  font-size: 28px !important;
 }
 .file {
-  height: 45% !important;
+  height: 50% !important;
 }
