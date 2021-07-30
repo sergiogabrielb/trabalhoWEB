@@ -5,7 +5,7 @@ $pdo = pdo_connect_mysql();
 if (isset($_POST['update'])) {
 
 	// checking empty fields
-	if (empty($_POST['titulo']) || empty($_POST['descricao']) || empty($_POST['preco']) || empty($_POST['estoque']) || empty($_POST['situacao'])) {
+	if (empty($_POST['titulo']) || empty($_POST['descricao']) || empty($_POST['porc_desconto']) || empty($_POST['preco']) || empty($_POST['estoque']) || empty($_POST['situacao'])) {
 
 		if (empty($_POST['titulo'])) {
 			echo "<font color='red'>O nome do produto está vazio</font><br/>";
@@ -13,6 +13,9 @@ if (isset($_POST['update'])) {
 
 		if (empty($_POST['descricao'])) {
 			echo "<font color='red'>A descricao está vazia.</font><br/>";
+		}
+		if (empty($_POST['porc_desconto'])) {
+			echo "<font color='red'>A porcentagem está vazia.</font><br/>";
 		}
 
 		if (empty($_POST['preco'])) {
@@ -92,23 +95,23 @@ $res = $resultados->fetch(PDO::FETCH_ASSOC);
 							<div class="info">Insira as informações do produto</div>
 							<div class="nomeProduto">
 								<p class="nameProduto">Nome do produto:</p>
-								<input type="text" name="titulo" />
+								<input type="text" name="titulo" value="<?php echo $res['titulo']; ?>">
 							</div>
 							<div class="nomeProduto">
 								<p class="descProduto">Descrição:</p>
-								<input type="text" name="descricao" />
+								<input type="text" name="descricao" value="<?php echo $res['descricao']; ?>">
 							</div>
 							<div class="nomeProduto">
 								<p class="selectProduto">Porcentagem Desconto:</p>
-								<input type="text" name="descricao" />
+								<input type="text" name="preco" value="<?php echo  $res['porc_desconto']; ?>">
 							</div>
 							<div class="nomeProduto">
 								<p>Preço:</p>
-								<input type="text" name="preco" />
+								<input type="text" name="porc_desconto" value="<?php echo  $res['preco']; ?>">
 							</div>
 							<div class="nomeProduto">
 								<p class="estoProduto">Estoque:</p>
-								<input type="text" name="estoque" />
+								<input type="text" name="estoque" value="<?php echo  $res['estoque']; ?>">
 							</div>
 							<div class="nomeProduto">
 								<p class="descProduto">Situação:</p>
@@ -127,7 +130,7 @@ $res = $resultados->fetch(PDO::FETCH_ASSOC);
 								<input class="file" type="file" />
 							</div>
 							<div class="botaoCadastrar">
-								<input class="buttonCadastro" type="update" name="Submit" value="Atualizar" />
+								<input class="buttonCadastro" type="submit" name="update" value="Atualizar" />
 							</div>
 						</div>
 					</div>
@@ -135,6 +138,12 @@ $res = $resultados->fetch(PDO::FETCH_ASSOC);
 		</div>
 	</div>
 	</form>
+	<footer class="footer">
+		<a href="https://instagram.com" class="redesSociais">
+			<i class="fab fa-instagram"></i>Instagram</a>
+		<a href="https//:instagram.com" class="redesSociais"><i class="fab fa-twitter"></i>Twitter</a>
+		<a href="https//:instagram.com" class="redesSociais"><i class="fab fa-facebook"></i>Facebook</a>
+	</footer>
 </body>
 
 </html>
