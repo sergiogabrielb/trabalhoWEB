@@ -7,10 +7,13 @@ $resultado = $pdo->prepare("SELECT * FROM produtos ORDER BY id DESC");
 $resultado->execute();
 
 
+if (isset($_POST['situacao1'])) {
+	$pesquisa = $_POST['situacao1'];
+}
 
 if (isset($_POST['pesquisar'])) {
 	$pesquisar = $_POST['pesquisar'];
-	$result_produtos = $pdo->prepare("SELECT * FROM produtos WHERE titulo LIKE '%$pesquisar%' LIMIT 5");
+	$result_produtos = $pdo->prepare("SELECT * FROM produtos WHERE (situacao LIKE '%$pesquisa%') AND (titulo LIKE '%$pesquisar%')");
 	$result_produtos->execute();
 	$resultado = $result_produtos;
 }
@@ -52,7 +55,20 @@ if (isset($_POST['pesquisar'])) {
 		<div class="conteudo3">
 			<form class="post" method="POST">
 				<input class="pesquisar" type="text" name="pesquisar">
+				<select class="www" name="situacao1" id="">
+					<option value="" name="">
+						Todos
+					</option>
+					<option value="disponivel" name="disponivel">
+						Disponível
+					</option>
+					<option value="indisponivel" name="indisponivel">
+						Indisponivel
+					</option>
+					<option value="oferta" name="oferta">Oferta</option>
+				</select>
 				<input class="editDelete2" type="submit" value="Pesquisar"></input>
+
 			</form>
 			<div class="conteudoTabela">
 				<table class="tabela">
@@ -69,14 +85,14 @@ if (isset($_POST['pesquisar'])) {
 								echo "<td>";
 								echo "<ul>";
 								echo "<div class=Total>";
-								echo "<div class=listImg>" . "<img class=imglist src=\"./upload/$fotos[arquivo]\" alt=foto style=\"width:50px; height:auto\">" . "</div>";
-								echo "<div class=listTitulo>" . $res['titulo'] . "</div>";
-								echo "<div class=listdescricao>" . $res['descricao'] . "</div>";
-								echo "<div class=listpreco>" . $res['preco'] . "</div>";
-								echo "<div class=listdesconto>" . $res['porc_desconto'] . "%</div>";
-								echo "<div class=listestoque>" . $res['estoque'] . "</div>";
-								echo "<div class=listsituacao>" . $res['situacao'] . "</div>";
-								echo " <a class=noDecoration href=\"edit.php?id=$res[id]\"><button class=editDelete> Editar </button> </a><a class=noDecoration href=\"delete.php?id=$res[id]\" onClick=\"return confirm('Você tem certeza que deseja excluir esse produto?')\"><button class=editDelete>Excluir</button> </a></ul></div><td>";
+								echo "<div class=listImg>" . "<img class=imglist src=\"./upload/$fotos[arquivo]\" alt=foto>" . "</div>";
+								echo "<div class=listTitulo><p>Nome:</p> " . $res['titulo'] . "</div>";
+								echo "<div class=listdescricao><p>Descrição:</p> " . $res['descricao'] . "</div>";
+								echo "<div class=listpreco><p>Preço:</p> RS:" . $res['preco'] . "</div>";
+								echo "<div class=listdesconto><p>Desconto:</p> " . $res['porc_desconto'] . "%</div>";
+								echo "<div class=listestoque><p>Estoque:</p> " . $res['estoque'] . "</div>";
+								echo "<div class=listsituacao><p>Situação:</p> " . $res['situacao'] . "</div>";
+								echo "</ul></div><td>";
 							}
 							?>
 						</div>

@@ -6,15 +6,15 @@ $pdo = pdo_connect_mysql();
 $resultado = $pdo->prepare("SELECT * FROM produtos ORDER BY id DESC");
 $resultado->execute();
 
-if(isset($_POST['situacao1'])){
-	$pesquisa = $_POST['situacao1'];
+if (isset($_POST['situacao1'])) {
+    $pesquisa = $_POST['situacao1'];
 }
 
 if (isset($_POST['pesquisar'])) {
-	$pesquisar = $_POST['pesquisar'];
-	$result_produtos = $pdo->prepare("SELECT * FROM produtos WHERE (situacao LIKE '%$pesquisa%') AND (titulo LIKE '%$pesquisar%')");
-	$result_produtos->execute();
-	$resultado = $result_produtos;
+    $pesquisar = $_POST['pesquisar'];
+    $result_produtos = $pdo->prepare("SELECT * FROM produtos WHERE (situacao LIKE '%$pesquisa%') AND (titulo LIKE '%$pesquisar%')");
+    $result_produtos->execute();
+    $resultado = $result_produtos;
 }
 ?>
 
@@ -84,6 +84,23 @@ if (isset($_POST['pesquisar'])) {
                     </tr>
                     <?php
 
+<<<<<<< HEAD
+                    foreach ($resultado as $res) {
+                        $strm = $pdo->prepare("SELECT * FROM arquivos WHERE id = ?");
+                        $strm->execute([$res['arquivoId']]);
+                        $fotos = $strm->fetch(PDO::FETCH_ASSOC);
+                        echo "<tr>";
+                        echo "<td>" . "<img src=\"./upload/$fotos[arquivo]\" alt=foto style=\"width:50px; height:auto\">" . "</td>";
+                        echo "<td>" . $res['titulo'] . "</td>";
+                        echo "<td>" . $res['descricao'] . "</td>";
+                        echo "<td>" . $res['preco'] . "</td>";
+                        echo "<td>" . $res['porc_desconto'] . "%</td>";
+                        echo "<td>" . $res['estoque'] . "</td>";
+                        echo "<td>" . $res['situacao'] . "</td>";
+                        echo "<td> <a class=noDecoration href=\"edit.php?id=$res[id]\"><button class=editDelete> Editar </button> </a><a class=noDecoration href=\"delete.php?id=$res[id]\" onClick=\"return confirm('Você tem certeza que deseja excluir esse produto?')\"><button class=editDelete>Excluir</button> </a></td>";
+                    }
+                    ?>
+=======
 					foreach ($resultado as $res) {
 						$strm = $pdo->prepare("SELECT * FROM arquivos WHERE id = ?");
 						$strm->execute([$res['arquivoId']]);
@@ -92,13 +109,14 @@ if (isset($_POST['pesquisar'])) {
 						echo "<td>" . "<img src=\"./upload/$fotos[arquivo]\" alt=foto style=\"width:50px; height:auto\">" . "</td>";
 						echo "<td>" . $res['titulo'] . "</td>";
 						echo "<td>" . $res['descricao'] . "</td>";
-						echo "<td>" . $res['preco'] . "</td>";
+						echo "<td>" . $res['preco'] * (1 - $res['porc_desconto'] / 100) . "</td>";
 						echo "<td>" . $res['porc_desconto'] . "%</td>";
 						echo "<td>" . $res['estoque'] . "</td>";
 						echo "<td>" . $res['situacao'] . "</td>";
-						echo "<td> <a class=noDecoration href=\"edit.php?id=$res[id]\"><button class=editDelete> Editar </button> </a><a class=noDecoration href=\"delete.php?id=$res[id]\" onClick=\"return confirm('Você tem certeza que deseja excluir esse produto?')\"><button class=editDelete>Excluir</button> </a></td>";
+						echo "<td> <a class=noDecoration href=\"edit.php?id=$res[id]&arquivoId=$res[arquivoId]&arquivo=$fotos[arquivo]\"><button class=editDelete> Editar </button> </a><a class=noDecoration href=\"delete.php?id=$res[id]&arquivoId=$res[arquivoId]&arquivo=$fotos[arquivo]\" onClick=\"return confirm('Você tem certeza que deseja excluir esse produto?')\"><button class=editDelete>Excluir</button> </a></td>";
 					}
 					?>
+>>>>>>> e876ea24b2cfb7493a1354642f46aa677a8cedcd
                 </table>
             </div>
 

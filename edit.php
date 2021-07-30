@@ -32,17 +32,48 @@ if (isset($_POST['update'])) {
 
 		echo "<br/><a href='javascript:self.history.back();'>clique aqui para voltar</a>";
 	} else {
-		//updating the table
-		$resultado = $pdo->prepare("UPDATE produtos SET titulo = ?, descricao = ?, preco = ?, porc_desconto = ?, estoque = ? WHERE id = ?");
-		$resultado->execute([$_POST['titulo'], $_POST['descricao'], $_POST['preco'], $_POST['porc_desconto'], $_POST['estoque'], $_POST['situacao'], $_POST['id']]);
 
-		//redirectig to the display page. In our case, it is index.php
+		if (!isset($_FILES['file'])) {
+			//caso nao tenha arquivo
+			$resultado = $pdo->prepare("UPDATE produtos SET titulo = ?, descricao = ?, preco = ?, porc_desconto = ?, estoque = ?, situacao = ? WHERE id = ?");
+			$resultado->execute([$_POST['titulo'], $_POST['descricao'], $_POST['preco'], $_POST['porc_desconto'], $_POST['estoque'], $_POST['situacao'], $_POST['id']]);
+		} else {
+			//caso tenha um arquivo novo
+			//adicionando
+			$arquivoId = $_POST['arquivoId'];
+			$arquivo = $_POST['arquivo'];
+
+			$min = 0;
+			$max = 50000;
+
+			$fileName = rand($min, $max) . $_FILES['file']['name'];
+			$stmt = $pdo->prepare('INSERT INTO arquivos (arquivo) VALUES (?)');
+			$stmt->execute([$fileName]);
+			move_uploaded_file($_FILES['file']['tmp_name'], 'upload/' . $fileName);
+			$newArquivoId = $pdo->lastInsertId();
+
+			//atualizando produto
+			$resultado = $pdo->prepare("UPDATE produtos SET titulo = ?, descricao = ?, preco = ?, porc_desconto = ?, estoque = ?, situacao = ?, arquivoId = ? WHERE id = ?");
+			$resultado->execute([$_POST['titulo'], $_POST['descricao'], $_POST['preco'], $_POST['porc_desconto'], $_POST['estoque'], $_POST['situacao'], $newArquivoId, $_POST['id']]);
+
+			//removendo foto antiga
+			unlink("./upload/$arquivo");
+			$resultado = $pdo->prepare("DELETE FROM arquivos WHERE id = ?");
+			$resultado->execute([$arquivoId]);
+		}
+
+
+
 		header("Location: manipularProduto.php");
 	}
 }
 ?>
 <?php
-//getting id from url
+if (isset($_GET['arquivoId']) && isset($_GET['arquivo'])) {
+	$arquivoId = $_GET['arquivoId'];
+	$arquivo = $_GET['arquivo'];
+}
+
 if (isset($_GET['id'])) {
 	$id = $_GET['id'];
 }
@@ -96,7 +127,7 @@ $res = $resultados->fetch(PDO::FETCH_ASSOC);
 				</div>
 
 
-				<form class="formCadastro" name="form1" method="post" action="edit.php">
+				<form class="formCadastro" name="form1" method="post" action="edit.php" enctype="multipart/form-data">
 					<div class="inputsCadastro">
 						<div class="imagem">
 							<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
@@ -138,9 +169,12 @@ $res = $resultados->fetch(PDO::FETCH_ASSOC);
 							</div>
 							<div class="nomeProduto">
 								<p class="selectProduto">Selecione a foto do produto:</p>
-								<input class="file" type="file" />
+								<input class="file" type="file" name="file" />
 							</div>
 							<div class="botaoCadastrar">
+								<td><input type="hidden" name="id" value=<?php echo $_GET['id']; ?>></td>
+								<td><input type="hidden" name="arquivoId" value=<?php echo $arquivoId; ?>></td>
+								<td><input type="hidden" name="arquivo" value=<?php echo $arquivo; ?>></td>
 								<input class="buttonCadastro" type="submit" name="update" value="Atualizar" />
 							</div>
 						</div>
