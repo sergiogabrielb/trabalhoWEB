@@ -69,10 +69,11 @@ if (isset($_POST['update'])) {
 }
 ?>
 <?php
+if (isset($_GET['arquivoId']) && isset($_GET['arquivo'])) {
+	$arquivoId = $_GET['arquivoId'];
+	$arquivo = $_GET['arquivo'];
+}
 
-$arquivoId = $_GET['arquivoId'];
-$arquivo = $_GET['arquivo'];
-//getting id from url
 if (isset($_GET['id'])) {
 	$id = $_GET['id'];
 }
