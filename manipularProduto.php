@@ -33,6 +33,10 @@ $resultado->execute()
 
 					Cadastrar Produto</button></a>
 
+                    <form method="POST" action="pesquisar.php">
+                    <input type="text" name="pesquisar">
+                    <input type="submit" value="Pesquisar"></input>
+                </form>
 			<div class="conteudoTabela">
 				<table class="tabela">
 					<tr bgcolor='#CCCCCC'>
