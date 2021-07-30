@@ -26,10 +26,10 @@ $result = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC"); // usin
 	<div class="conteudo">
 		<a href="add.html"><button class="addProduto"><i class="fas fa-plus"></i>
 
-Cadastrar Produto</button></a>
+	Cadastrar Produto</button></a>
 		
-
-		<table>
+<div class="conteudoTabela">
+			<table class="tabela">
 	<tr bgcolor='#CCCCCC'>
 		<td>Name</td>
 		<td>Age</td>
@@ -43,14 +43,21 @@ Cadastrar Produto</button></a>
 		echo "<td>".$res['name']."</td>";
 		echo "<td>".$res['age']."</td>";
 		echo "<td>".$res['email']."</td>";	
-		echo "<td><a href=\"edit.php?id=$res[id]\">Edit</a> | <a href=\"delete.php?id=$res[id]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>";		
+		echo "<td> <a class=noDecoration href=\"edit.php?id=$res[id]\"><button class=editDelete> Editar </button> </a><a class=noDecoration href=\"delete.php?id=$res[id]\" onClick=\"return confirm('Are you sure you want to delete?')\"><button class=editDelete>Excluir</Delete> </a></td>";		
 	}
 	?>
 	</table>
-	</div>
+</div>
 
 	</div>
 
+	</div>
+<footer class="footer"><i class="fab fa-instagram"><a href="instagram.com" class="redesSociais">Instagram</a></i>
+<i class="fab fa-twitter"><a href="instagram.com" class="redesSociais">Instagram</a></i>
+<i class="fab fa-facebook"><a href="instagram.com" class="redesSociais">Instagram</a></i>
 
+
+</footer>
 </body>
+
 </html>
