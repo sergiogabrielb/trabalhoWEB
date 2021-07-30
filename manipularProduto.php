@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
 //including the database connection file
 include_once("config.php");
@@ -54,7 +53,7 @@ $resultado->execute()
 						echo "<td>" . $res['porc_desconto'] . "</td>";
 						echo "<td>" . $res['estoque'] . "</td>";
 						echo "<td>" . $res['preco'] . "</td>";
-						echo "<td> <a class=noDecoration href=\"edit.php?id=$res[id]\"><button class=editDelete> Editar </button> </a><a class=noDecoration href=\"delete.php?id=$res[id]\" onClick=\"return confirm('Você tem certeza que deseja excluir esse produto?')\"><button class=editDelete>Excluir</Button> </a></td>";
+						echo "<td> <a class=noDecoration href=\"edit.php?id=$res[id]\"><button class=editDelete> Editar </button> </a><a class=noDecoration href=\"delete.php?id=$res[id]\" onClick=\"return confirm('Você tem certeza que deseja excluir esse produto?')\"><button class=editDelete>Excluir</Delete> </a></td>";
 					}
 					?>
 				</table>
@@ -63,19 +62,12 @@ $resultado->execute()
 		</div>
 
 	</div>
-    <footer class="footer">
-      <a href="https://instagram.com" class="redesSociais">
-        <i class="fab fa-instagram"></i>Instagram</a
-      >
-      <a href="https//:instagram.com" class="redesSociais"
-        ><i class="fab fa-twitter"></i>Twitter</a
-      >
-      <a href="https//:instagram.com" class="redesSociais"
-        ><i class="fab fa-facebook"></i>Facebook</a
-      >
-    </footer>
+	<footer class="footer"><i class="fab fa-instagram"><a href="instagram.com" class="redesSociais">Instagram</a></i>
+		<i class="fab fa-twitter"><a href="instagram.com" class="redesSociais">Instagram</a></i>
+		<i class="fab fa-facebook"><a href="instagram.com" class="redesSociais">Instagram</a></i>
+
+
+	</footer>
 </body>
 
 </html>
-=======
->>>>>>> 843a97665382254029e6afd7e88db2cb6ffe45e6

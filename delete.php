@@ -11,4 +11,4 @@ $resultado = $pdo->prepare("DELETE FROM produtos WHERE id = ?");
 $resultado->execute([$id]);
 
 //redirecting to the display page (index.php in our case)
-header("Location:index.php");
+header("Location:manipularProduto.php");
