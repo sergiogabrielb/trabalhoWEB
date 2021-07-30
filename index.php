@@ -9,21 +9,34 @@ $result = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC"); // usin
 
 <html>
 <head>	
-	<title>Homepage</title>
+<meta charset="utf-8">
+            <link href="./styles/styles.css" rel="stylesheet" type="text/css">
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+	<title>EletronicBuy</title>
 </head>
 
 <body>
-<a href="add.html">Add New Data</a><br/><br/>
+	<div class="menu">
+		
+		<h3><i class="fa fa-mobile" aria-hidden="true"></i>EletronicBuy</h3>
+	</div>
+	<div class="content">
+		<img src="./images/background.jpg"/>
 
-	<table width='80%' border=0>
+	<div class="conteudo">
+		<a href="add.html"><button class="addProduto"><i class="fas fa-plus"></i>
 
+Cadastrar Produto</button></a>
+		
+
+		<table>
 	<tr bgcolor='#CCCCCC'>
 		<td>Name</td>
 		<td>Age</td>
 		<td>Email</td>
 		<td>Update</td>
 	</tr>
-	<?php 
+		<?php 
 	//while($res = mysql_fetch_array($result)) { // mysql_fetch_array is deprecated, we need to use mysqli_fetch_array 
 	while($res = mysqli_fetch_array($result)) { 		
 		echo "<tr>";
@@ -34,5 +47,10 @@ $result = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC"); // usin
 	}
 	?>
 	</table>
+	</div>
+
+	</div>
+
+
 </body>
 </html>
