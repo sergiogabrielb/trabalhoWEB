@@ -20,7 +20,7 @@
 			<div class="buttonsMenu">
 				
 				<a href="promocoes.php"><button class="buttonMP">Promoções</button></a>
-				<a href="/trabalhoWEB/listarProduto.php"><button class="buttonMP">Todos os produtos</button></a>
+				<a href="listarProduto.php"><button class="buttonMP">Todos os produtos</button></a>
 				<a href="add.html"><button class="buttonMP">Cadastro de produtos</button></a>
 				<a href="manipularProduto.php"><button class="buttonMP">Gerenciar produtos</button></a>
 
@@ -45,7 +45,7 @@
 						<p class="desconto">40%</p>
 						<p class="ffinal">Produtos de qualidade e procedência é aqui, na <strong>EletronicBuy</strong></p>
 						<div class="buttonInfo">
-						<a href="add.html">
+						<a href="/trabalhoWEB/listarProduto.php">
 							<button>Começar</button>
 						</a>
 					</div>
