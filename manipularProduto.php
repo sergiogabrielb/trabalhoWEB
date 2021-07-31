@@ -94,7 +94,7 @@ if (isset($_POST['pesquisar'])) {
 						echo "<td class=imagemToda>" . "<img class=imglist2 src=\"./upload/$fotos[arquivo]\" alt=foto style=\"width:50px; height:auto\">" . "</td>";
 						echo "<td>" . $res['titulo'] . "</td>";
 						echo "<td>" . $res['descricao'] . "</td>";
-						echo "<td>" . $res['preco'] . "</td>";
+						echo "<td>RS:" . $res['preco'] * (1 - $res['porc_desconto'] / 100) . "</td>";
 						echo "<td>" . $res['porc_desconto'] . "%</td>";
 						echo "<td>" . $res['estoque'] . "</td>";
 						echo "<td>" . $res['situacao'] . "</td>";
