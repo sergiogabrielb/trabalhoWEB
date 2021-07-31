@@ -1,10 +1,7 @@
 <?php
-// including the database connection file
 include_once("config.php");
 $pdo = pdo_connect_mysql();
 if (isset($_POST['update'])) {
-
-	// checking empty fields
 	if (empty($_POST['titulo']) || empty($_POST['descricao']) || empty($_POST['porc_desconto']) || empty($_POST['preco']) || empty($_POST['estoque']) || empty($_POST['situacao'])) {
 
 		if (empty($_POST['titulo'])) {
@@ -100,12 +97,14 @@ $res = $resultados->fetch(PDO::FETCH_ASSOC);
 </head>
 
 <body>
-<div class="contentMenu">
+	<div class="contentMenu">
 		<div class="menu">
 
-			<a href="/trabalhoWEB"><h3><i class="fa fa-mobile" aria-hidden="true"></i>EletronicBuy</h3></a>
+			<a href="/trabalhoWEB">
+				<h3><i class="fa fa-mobile" aria-hidden="true"></i>EletronicBuy</h3>
+			</a>
 			<div class="buttonsMenu">
-				
+
 				<a href="manipularProduto.php"><button class="buttonMP">Promoções</button></a>
 				<a href="/trabalhoWEB"><button class="buttonMP">Todos os produtos</button></a>
 				<a href="add.html"><button class="buttonMP">Cadastro de produtos</button></a>
