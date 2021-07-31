@@ -30,7 +30,7 @@ if (isset($_POST['update'])) {
 		echo "<br/><a href='javascript:self.history.back();'>clique aqui para voltar</a>";
 	} else {
 
-		if (!isset($_FILES['file'])) {
+		if ($_FILES['file']['size'] === 0) {
 			//caso nao tenha arquivo
 			$resultado = $pdo->prepare("UPDATE produtos SET titulo = ?, descricao = ?, preco = ?, porc_desconto = ?, estoque = ?, situacao = ? WHERE id = ?");
 			$resultado->execute([$_POST['titulo'], $_POST['descricao'], $_POST['preco'], $_POST['porc_desconto'], $_POST['estoque'], $_POST['situacao'], $_POST['id']]);
@@ -69,6 +69,9 @@ if (isset($_POST['update'])) {
 if (isset($_GET['arquivoId']) && isset($_GET['arquivo'])) {
 	$arquivoId = $_GET['arquivoId'];
 	$arquivo = $_GET['arquivo'];
+} else {
+	$arquivoId = null;
+	$arquivo = null;
 }
 
 if (isset($_GET['id'])) {
@@ -144,11 +147,11 @@ $res = $resultados->fetch(PDO::FETCH_ASSOC);
 							</div>
 							<div class="nomeProduto">
 								<p class="selectProduto">Porcentagem Desconto:</p>
-								<input type="text" name="preco" value="<?php echo  $res['porc_desconto']; ?>">
+								<input type="text" name="porc_desconto" value="<?php echo  $res['porc_desconto']; ?>">
 							</div>
 							<div class="nomeProduto">
 								<p>Preço:</p>
-								<input type="text" name="porc_desconto" value="<?php echo  $res['preco']; ?>">
+								<input type="text" name="preco" value="<?php echo  $res['preco']; ?>">
 							</div>
 							<div class="nomeProduto">
 								<p class="estoProduto">Estoque:</p>
