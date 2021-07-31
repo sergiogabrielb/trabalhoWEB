@@ -30,10 +30,10 @@ if (isset($_POST['update'])) {
 		echo "<br/><a href='javascript:self.history.back();'>clique aqui para voltar</a>";
 	} else {
 
-		if (!isset($_FILES['file'])) {
+		if ($_FILES['file']['size'] === 0) {
 			//caso nao tenha arquivo
-			$resultado = $pdo->prepare("UPDATE produtos SET titulo = ?, descricao = ?, preco = ?, porc_desconto = ?, estoque = ?, situacao = ?, arquivoId = ? WHERE id = ?");
-			$resultado->execute([$_POST['titulo'], $_POST['descricao'], $_POST['preco'], $_POST['porc_desconto'], $_POST['estoque'], $_POST['situacao'], $_POST['arquivoId'], $_POST['id']]);
+			$resultado = $pdo->prepare("UPDATE produtos SET titulo = ?, descricao = ?, preco = ?, porc_desconto = ?, estoque = ?, situacao = ? WHERE id = ?");
+			$resultado->execute([$_POST['titulo'], $_POST['descricao'], $_POST['preco'], $_POST['porc_desconto'], $_POST['estoque'], $_POST['situacao'], $_POST['id']]);
 		} else {
 			//caso tenha um arquivo novo
 			//adicionando
